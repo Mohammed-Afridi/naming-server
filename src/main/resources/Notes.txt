@@ -1,3 +1,26 @@
 In dependency add eureka server
 
 Add @EnableEurekaServer - It will enable auto Configuration of Eureka Server
+
+in this step we will connect Micro services to naming server
+and after that CCS talks to CES thorugh naming server -> this is the second step
+lets focus on first step now
+
+open pom.xml of CCS and CES
+add eureka client dep in both
+now just run one application ( CES ) and open eureka server and refresh , you will see
+
+Application	AMIs	Availability Zones	Status
+CURRENCY-EXCHANGE	n/a (1)	(1)	UP (1) - 10.75.116.195:currency-exchange:8000
+
+However i want to be safe, i will cofngiure the url directly in application.properties
+configure eureka.client.serviceUrl.defaultZone, for later purposes
+
+Now lets open the app properties of CCS and add this property anfd then launch CCS as well
+Now if refresh , bot of them will be registered
+
+Application	AMIs	Availability Zones	Status
+CURRENCY-CONVERSION	n/a (1)	(1)	UP (1) - 10.75.116.195:currency-conversion:8100
+CURRENCY-EXCHANGE	n/a (1)	(1)	UP (1) - 10.75.116.195:currency-exchange:8000
+
+next we will try to load balance
