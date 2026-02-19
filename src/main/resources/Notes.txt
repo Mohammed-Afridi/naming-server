@@ -57,4 +57,20 @@ This is called Client side load balancing, This happening through Feign.
 and How does Feign do load balacning ?
 it you check the parent dpendency in pom.xml , if you search for load balancer you will find it under spring cloud eureka client.
 
+Api Gateway :
+Until now we have setup Couple of microservices and in typical enterprise there might be 100's of microservice and these might have
+common features like authentication,authorizxation - > The question is where do you implment common features
+If you are doing it in every micro srevice then you are duplicating, and that's why we will go to " API Gateway"
+
+Api gateway : is the place where you can implement common features you want across multiple microservices.
+
+specific implementation of api gateway in spring world is Spring Cloud Gateway, ealrier it was Zool.
+
+lets say the CCS wants to talk to CES , in that scenario the request would go thorugh API gateway
+
+if you want authentication,authorizxation or rate limiting you can implement all logic in API gateway, And Spring cloud gateway provides
+simple and effective way to route to APi's. If there is an incoming request it would be intercepted by API gateway
+
+Next is to create a new project spring cloud gateway
+
 
