@@ -1,0 +1,3 @@
+In dependency add eureka server
+
+Add @EnableEurekaServer - It will enable auto Configuration of Eureka Server
